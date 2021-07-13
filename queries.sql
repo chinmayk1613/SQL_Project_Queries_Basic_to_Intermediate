@@ -1,10 +1,11 @@
+-- Q1.1 Select all the data from covidVaccination table
 Select *
-From project.covidDeaths
+From project.covidVaccination
 Where continent is not null 
 order by 3,4
 
 
--- Q1. Select all the data
+-- Q1.2. Select all the data from covidDeaths table
 
 Select *
 From project.covidDeaths
