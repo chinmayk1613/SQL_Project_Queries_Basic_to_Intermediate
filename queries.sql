@@ -80,7 +80,7 @@ where dea.continent is not null
 order by 2,3
 
 
--- Q8. Using CTE to perform Calculation on Partition By in previous query
+-- Q9. Using CTE to perform Calculation on Partition By in previous query
 
 With PopvsVac (Continent, location, Date, population, New_Vaccinations, PeopleVaccinated)
 as
@@ -98,7 +98,7 @@ From PopvsVac
 
 
 
--- Q9. Using Temp Table to perform Calculation on Partition By in previous query
+-- Q10. Using Temp Table to perform Calculation on Partition By in previous query
 
 DROP Table if exists #PercentpopulationVaccinated
 Create Table #PercentpopulationVaccinated
@@ -124,7 +124,7 @@ From #PercentpopulationVaccinated
 
 
 
--- Q10. Creating of the view for further uses
+-- Q11. Creating of the view for further uses
 Create View PercentpopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
 , SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.location Order by dea.location, dea.Date) as PeopleVaccinated
